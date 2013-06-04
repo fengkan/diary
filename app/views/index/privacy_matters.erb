@@ -1,0 +1,45 @@
+<% content_for :head do %>
+<style>
+body {
+  background: none repeat scroll 0 0 #FFFFFF;
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height:1.6;
+}
+.wide {
+  padding: 20px 20px 0;
+}
+ul {
+  list-style: none outside none;
+}
+li {
+	line-height:1.6;
+}
+@media (max-width: 979px) {
+body {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height:1.6;
+}
+h1 {
+	font-size:22px;
+	line-height:1.6;
+}
+}
+</style>
+<% end %>
+<div class="container wide">
+<div class="scrollblock block-title">
+  <h1>maruDiary</h1>
+  <h1>因为无声，所以能说的更响。</h1>
+  <p>您在 maruDiary 的日记将使用您的密码进行加密。maruDiary 不会保存您的密码，日记的加密以及解密都在您的浏览器中完成。</p>
+  <p>这意味着您得<span class="label label-important">千万记得自己的密码</span>，否则您的日记将无法阅读。您可以通过“密码提示”来帮助自己记忆密码。</p>
+    <a href="/account/signup/">注册</a>
+    <a href="/account/login/">登入</a>
+    <a href="/">maruDiary</a>
+</div>
+</div>

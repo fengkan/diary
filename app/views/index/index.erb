@@ -1,0 +1,65 @@
+<% content_for :head do %>
+<style>
+h1, h2, h3, .masthead p, .subhead p, .marketing h2, .lead
+{
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+  font-weight: normal;
+}
+.jumbotron:after {
+  background: url("/images/p6.jpg") no-repeat scroll 0 0 / cover transparent;
+  opacity: 1;
+}
+body {
+	background-color: #F5F5F5;
+	padding-top: 0px;
+}
+</style>
+<% end %>
+<div class="jumbotron masthead">
+  <div class="container main">
+	<h1>maruDiary</h1>
+	<p>100% 私密在线日记</p>
+	<p>
+	  <a href="/account/signup" class="btn btn-primary btn-large" >注册新用户</a>
+	  <a href="/account/login" class="btn btn-success btn-large hidden-phone hidden-tablet" id="start-intro">已有账号？马上登入</a>
+	</p>
+  </div>
+</div>
+<div class="container">
+  <div class="marketing">
+	<h1>maruDiary 简介</h1>
+	<p class="marketing-byline">maruDiary 和其他日记系统的区别在哪里？就在眼前</p>
+	<div class="row-fluid">
+	  <div class="span4">
+		<img class="marketing-img lazy" src="http://www.bootcss.com/assets/img/bs-docs-responsive-illustrations.png">
+		<h2>All！</h2>
+		<p>可以运行 maruDiary 的平台是：全部！</p>
+		<p>您可以在各种现代浏览器中使用 maruDiary，在平板电脑以及智能手机上 maruDiary 也有上佳表现。<span class="extra_expl">暂不支持运行于 iOS 之上的 safari 浏览器。</span></p>
+	  </div>
+	  <div class="span4">
+		<img class="marketing-img lazy" src="http://www.bootcss.com/assets/img/bs-docs-twitter-github.png">
+		<h2>Zero！</h2>
+		<p>除了您以外，能够阅读您日记的人数是：零！</p>
+		<p>我们使用更尖端的加密技术，保证您的日记无法被任何人阅读，包括我们自己。<a href="/what_we_have_done">了解我们是怎么做到的。</a></p>
+	  </div>
+	  <div class="span4">
+		<img class="marketing-img lazy" src="http://www.bootcss.com/assets/img/bs-docs-bootstrap-features.png">
+		<h2>Free！</h2>
+		<p>好吧，只是为了凑满三个，排版上省力些~</p>
+	  </div>
+	</div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p>Powered by <a href="http://rubyonrails.org/" target="_blank">Ruby On Rails</a> and <a href="http://twitter.github.io/bootstrap/index.html" target="_blank">Bootstrap</a>.</p>
+    <p><a href="http://glyphicons.com" target="_blank">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</p>
+    <ul class="footer-links">
+      <li><a href="/">maruDiary</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="/account/signup">注册</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="/account/login">登入</a></li>
+    </ul>
+  </div>
+</footer>

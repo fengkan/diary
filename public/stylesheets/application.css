@@ -1,0 +1,162 @@
+
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.form-signin {
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.wide {
+  max-width: 600px;
+}
+.form-signin .form-signin-heading {
+  margin-bottom: 20px;
+}
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+.login-btn {
+	font-size: 16px;
+}
+.control-group {
+  margin-bottom: 0px;
+}
+h1, h2, h3, h4, .lead {
+font-family: "freight-sans-pro","Myriad Pro","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif,Helvetica,Arial,"Microsoft Yahei UI","Microsoft YaHei",SimHei,"宋体",simsun,sans-serif;
+	font-weight: normal;
+	font-weight: 700;
+}
+textarea, #post_content {
+	font-family: "Verdana", "Helvetica Neue",Helvetica,Arial,"宋体",simsun,sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+#post_content {
+	overflow:hidden;
+	margin-bottom:20px;
+}
+.btn-large {
+	margin-right:4px;
+}
+.pull-right {
+	margin-right:0px;
+}
+.with_header {
+  margin: 20px auto;
+}
+.m-pull-left {
+	margin-left: 20px;
+	margin-top:20px;
+}
+.main {
+    margin-top: 30px;
+}
+.jumbotron p {
+    margin-bottom: 40px;
+}
+.masthead h1 {
+    margin-bottom: 30px;
+}
+.masthead {
+    padding-bottom: 40px;
+}
+.post_heading {
+	color:#333332;
+	margin: 24px 0 16px;
+	font-size:24px;
+}
+textarea, textarea:focus
+{
+  color: #333333;
+  display: inline-block;
+  font-size: 16px;
+  border:0px;
+  box-shadow:0 0px 0px;
+  width:98%;
+  padding:0px;
+}
+.with_border {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.for-textarea {
+	padding:10px;
+	border:0px;
+}
+.form-signin-heading {
+font-family: "Verdana", "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei UI","Microsoft YaHei",SimHei,"宋体",simsun,sans-serif;
+font-weight:normal;
+}
+
+@media (max-width: 979px) {
+textarea, textarea:focus, #post_content
+{
+    font-size: 18px;
+    line-height: 1.4;
+}
+}
+
+.alert .close {
+  top: 2px;
+}
+.checkbox.control-group.error{
+    color: #B94A48;
+}
+.extra_expl {
+  color: #999999;
+  font-size: 13px;
+}
+.label-important {
+	font-size:30px;
+  line-height: 32px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.scrollblock a {
+  color: #CC4037;
+  display:block;
+}
+
+.block-title p {
+  color: #333333;
+  line-height: 1.6;
+  margin: 20px auto;
+}
+h1, h2, h3, .block-title p, .block-title a
+{
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+  font-weight: normal;
+}
+.scrollblock {
+  color: white;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  color: #333333;
+}
+.block-title {
+  background-color: #FFFFFF;
+  padding-bottom: 50px;
+}

@@ -1,0 +1,4 @@
+CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "user_id" INTEGER NOT NULL , "title" TEXT, "content" TEXT, "created_at" DATETIME, "updated_at" DATETIME);
+CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL);
+CREATE TABLE "users" ("id" INTEGER PRIMARY KEY  NOT NULL ,"email" varchar(255) NOT NULL  DEFAULT ('') ,"encrypted_password" varchar(255) NOT NULL  DEFAULT ('') ,"remember_created_at" datetime,"confirmation_token" varchar(255),"confirmed_at" datetime,"confirmation_sent_at" datetime,"unconfirmed_email" varchar(255),"hint" varchar(255),"created_at" datetime NOT NULL ,"updated_at" datetime NOT NULL ,"salt" varchar(255) DEFAULT (null) , "remember_token" varchar(255), "remember_token_expires_at" DATETIME);
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");

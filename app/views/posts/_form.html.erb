@@ -1,0 +1,63 @@
+<% content_for :head do %>
+<script>
+$(document).ready(function(){
+	var dontlinger = false;
+  var msg = window.localStorage.getItem("password");
+  var decrypted = CryptoJS.AES.decrypt($('#post_content').text(), msg);
+  var utf8 = CryptoJS.enc.Utf8.stringify(decrypted);
+  $('#post_content').val(utf8);
+  $('#post_content').focus();
+  $('#save-btn').click(function() {
+  	dontlinger = true;
+    var msg = window.localStorage.getItem("password");
+    var words = CryptoJS.enc.Utf8.parse($("textarea#post_content").val());
+    var encrypted = CryptoJS.AES.encrypt(words, msg);
+    $('#post_content').val(encrypted);
+    $('#post_content').parent().parent().submit();
+  });
+  $('#remove_btn').click(function() {
+    if ($("textarea#post_content").val() != utf8) {
+      $('#confirmModal').modal('show');
+      return false;
+    }
+  });
+  $('#dontsave').click(function() {
+  	dontlinger = true;
+  });
+	$(window).bind('beforeunload', function(){
+    if (($("textarea#post_content").val() != utf8) && !dontlinger) {
+      return "您已做了修改";
+    }
+	});
+});
+</script>
+<style type="text/css">
+  body {
+    background-color: #ffffff;
+  }
+</style>
+<% end %>
+<div class="container span8 offset2">
+  <div data-role="header" data-position="fixed">
+    <a href="/posts" class="btn btn-large" id="remove_btn"><i class="icon-remove"></i></a>
+    <button type="submit" class="btn btn-large pull-right" id="save-btn"><i class="icon-ok"></i></button>
+  </div>
+<%= form_for @post, :html => {:class => "with_border with_header"} do |f| %>
+	<div class="form-signin for-textarea">
+    <%= f.text_area :content %>
+  </div>
+<%- end -%>
+</div>
+<div id="confirmModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="confirmModalLabel">您已做了修改</h3>
+  </div>
+  <div class="modal-body">
+    <p>是否放弃修改？</p>
+  </div>
+  <div class="modal-footer">
+    <a href="/posts"><button class="btn" id="dontsave">放弃修改</button></a>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">继续编辑</button>
+  </div>
+</div>

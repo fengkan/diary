@@ -1,0 +1,46 @@
+<% content_for :head do %>
+<script>
+$(document).ready(function(){
+  var msg = window.localStorage.getItem("password");
+  var decrypted = CryptoJS.AES.decrypt($('#post_content').text(), msg);
+  var utf8 = CryptoJS.enc.Utf8.stringify(decrypted);
+  var v = utf8.replace(/\n/g, "<br/>");
+  $('#post_content').html(v);
+//    $('#post_content').animate({opacity:0}, 1500)
+//        .queue(function(){$(this).html(v); $(this).dequeue()})
+//        .animate({opacity:1}, 500);  
+});
+</script>
+<style type="text/css">
+  body {
+    background-color: #ffffff;
+  }
+</style>
+<% end %>
+<% if !flash[:notice].blank? %>
+<div class="<%= flash[:class] %>">
+<%= flash[:notice] %>
+<a class="close" data-dismiss="alert" href="#">&times;</a>
+</div>
+<% end %>
+<div class="container span8 offset2">
+  <%- if !@posts[0].nil? -%>
+  <%- if !@posts.last_page? -%>
+  <a href="/posts?page=<%= @posts.current_page + 1 %>" class="btn btn-large"><i class="icon-chevron-left"></i></a>
+  <%- end -%>
+  <a href="/posts/<%= @posts[0].id %>/edit" class="btn btn-large"><i class="icon-pencil"></i></a>
+  <% if !@posts.first_page? %>
+  <a href="/posts?page=<%= @posts.current_page - 1 %>" class="btn btn-large"><i class="icon-chevron-right"></i></a>
+  <% end %>
+  <% end %>
+  <% if @posts.size == 0 or @posts.current_page == 1 %>
+  <a href="/posts/new" class="btn btn-large"><i class="icon-plus"></i></a>
+  <% end %>
+  <a href="/account/logout" class="btn btn-large pull-right"><i class="icon-lock"></i></a>
+<% if !@posts[0].nil? %>
+    <h4 class="post_heading"><%= @posts[0].created_at.strftime('%Y/%m/%d %H:%M') %></h4>
+    <div id="post_content"><%= h(@posts[0].content) %></div>
+<% else %>
+    <div class="m-pull-left"><i class="icon-hand-up"></i> 点击添加吧~</div>
+<% end %>
+</div>

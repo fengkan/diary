@@ -1,0 +1,77 @@
+<% content_for :title do %>
+  <%= '注册 - maruDiary' %>
+<% end %>
+<% content_for :head do %>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#submit_btn').click(function() {
+  	if ($('#user_hint').val() == '') {
+  		$("#checkbox_container").slideDown();
+  	}
+  });  
+
+  $('#user_form').validate({
+    showErrors: function(errorMap, errorList) {
+      this.defaultShowErrors();
+      $("label.error").hide();
+    },
+     submitHandler: function(form) {
+      var msg = $('#user_password').val();
+      var hash = CryptoJS.SHA256(msg);
+      $('#user_password').val(hash);
+      $('#user_password_confirmation').val();
+      form.submit();
+    },
+    onkeyup: false,
+    onclick: false,
+    rules: {
+      user_email: {
+      required: true,
+      email: true
+      },
+      user_password: {
+      required: true,
+      },
+      user_password_confirmation: {
+        required: true,
+        equalTo: "#user_password"
+      },
+      known_checkbox: {
+        required: {  
+          depends: function(element) {  
+            return $('#user_hint').val() == ''; 
+          }
+        } 
+      }
+    },
+    highlight: function(element) {
+      $(element).closest('.control-group').addClass('error');
+    },
+    success: function(element) {
+      element.addClass('valid')
+      .closest('.control-group').removeClass('error');
+    }
+  });
+});
+</script>
+<script src="/javascripts/jquery.validate.min.js"></script>
+<% end %>
+<% if !flash[:notice].blank? %>
+<div class="<%= flash[:class] %>">
+<%= flash[:notice] %>
+<a class="close" data-dismiss="alert" href="#">&times;</a>
+</div>
+<% end %>
+<div class="container">
+<form class="form-signin wide"  method="post" id="user_form" action="/account/signup">
+  <h2 class="form-signin-heading">请注册</h2>
+  <div class="control-group"><input type="text" placeholder="Email" class="input-block-level" id="user_email"  name="user_email"></div>  
+  <div class="control-group"><input type="password" placeholder="密码" class="input-block-level" id="user_password" name="user_password"></div>  
+  <div class="control-group"><input type="password" placeholder="确认密码" class="input-block-level" id="user_password_confirmation" name="user_password_confirmation"></div>  
+  <input type="text" placeholder="密码提示" class="input-block-level" id="user_hint" name="user_hint">
+  <div class="checkbox control-group" style="display:none;" id="checkbox_container"><input type="checkbox" id="known_checkbox" name="known_checkbox"> 我了解密码提示的重要性，但是宁愿不填写。</div>
+  <span class="help-block">请填写可以帮助您回忆密码的提示。<a href="/what_we_have_done">为什么您可能需要这个。</a></span>
+  <button type="submit" class="btn btn-large btn-primary login-btn" id="submit_btn">提交</button>
+  <a href="/account/login" class="btn btn-large pull-right login-btn">登入</a>
+</form>
+</div>
